@@ -1,0 +1,10 @@
+Spark Command: /Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home/bin/java -cp /opt/homebrew/Cellar/apache-spark/3.3.2/libexec/conf/:/opt/homebrew/Cellar/apache-spark/3.3.2/libexec/jars/* -Xmx1g -XX:+IgnoreUnrecognizedVMOptions --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED --add-opens=java.base/sun.nio.ch=ALL-UNNAMED --add-opens=java.base/sun.nio.cs=ALL-UNNAMED --add-opens=java.base/sun.security.action=ALL-UNNAMED --add-opens=java.base/sun.util.calendar=ALL-UNNAMED --add-opens=java.security.jgss/sun.security.krb5=ALL-UNNAMED org.apache.spark.deploy.SparkSubmit --class org.apache.spark.sql.hive.thriftserver.HiveThriftServer2 --name Thrift JDBC/ODBC Server spark-internal
+========================================
+23/04/01 15:50:31 WARN Utils: Your hostname, baehyebin-ui-MacBookPro.local resolves to a loopback address: 127.0.0.1; using 192.168.0.14 instead (on interface en0)
+23/04/01 15:50:31 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+23/04/01 15:50:31 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+23/04/01 15:50:32 WARN HiveConf: HiveConf of name hive.stats.jdbc.timeout does not exist
+23/04/01 15:50:32 WARN HiveConf: HiveConf of name hive.stats.retries.wait does not exist
+23/04/01 15:50:33 WARN ObjectStore: Version information not found in metastore. hive.metastore.schema.verification is not enabled so recording the schema version 2.3.0
+23/04/01 15:50:33 WARN ObjectStore: setMetaStoreSchemaVersion called but recording version is disabled: version = 2.3.0, comment = Set by MetaStore Haylee@127.0.0.1
+23/04/01 15:50:55 ERROR HiveThriftServer2: RECEIVED SIGNAL TERM

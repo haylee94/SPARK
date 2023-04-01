@@ -1,0 +1,51 @@
+Spark Command: /Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home/bin/java -cp /opt/homebrew/Cellar/apache-spark/3.3.2/libexec/conf/:/opt/homebrew/Cellar/apache-spark/3.3.2/libexec/jars/* -Xmx1g -XX:+IgnoreUnrecognizedVMOptions --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED --add-opens=java.base/sun.nio.ch=ALL-UNNAMED --add-opens=java.base/sun.nio.cs=ALL-UNNAMED --add-opens=java.base/sun.security.action=ALL-UNNAMED --add-opens=java.base/sun.util.calendar=ALL-UNNAMED --add-opens=java.security.jgss/sun.security.krb5=ALL-UNNAMED org.apache.spark.deploy.SparkSubmit --class org.apache.spark.sql.hive.thriftserver.HiveThriftServer2 --name Thrift JDBC/ODBC Server spark-internal
+========================================
+23/03/31 15:51:06 WARN Utils: Your hostname, baehyebin-ui-MacBookPro.local resolves to a loopback address: 127.0.0.1; using 192.168.0.8 instead (on interface en0)
+23/03/31 15:51:06 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+23/03/31 15:51:06 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+23/03/31 15:51:08 WARN HiveConf: HiveConf of name hive.stats.jdbc.timeout does not exist
+23/03/31 15:51:08 WARN HiveConf: HiveConf of name hive.stats.retries.wait does not exist
+23/03/31 15:51:09 WARN ObjectStore: Version information not found in metastore. hive.metastore.schema.verification is not enabled so recording the schema version 2.3.0
+23/03/31 15:51:09 WARN ObjectStore: setMetaStoreSchemaVersion called but recording version is disabled: version = 2.3.0, comment = Set by MetaStore Haylee@127.0.0.1
+23/03/31 15:51:09 WARN ObjectStore: Failed to get database default, returning NoSuchObjectException
+23/03/31 15:52:11 WARN HiveConf: HiveConf of name hive.stats.jdbc.timeout does not exist
+23/03/31 15:52:11 WARN HiveConf: HiveConf of name hive.stats.retries.wait does not exist
+23/03/31 15:52:12 WARN ObjectStore: Failed to get database global_temp, returning NoSuchObjectException
+23/03/31 16:36:59 WARN HiveConf: HiveConf of name hive.stats.jdbc.timeout does not exist
+23/03/31 16:36:59 WARN HiveConf: HiveConf of name hive.stats.retries.wait does not exist
+23/03/31 16:39:28 ERROR SparkExecuteStatementOperation: Error executing query with e305f900-3482-400c-95f4-f7b18813d1c1, currentState RUNNING, 
+org.apache.spark.sql.catalyst.parser.ParseException: 
+Syntax error at or near '.'(line 1, pos 0)
+
+== SQL ==
+./sbin/stop-thriftserver.sh
+^^^
+
+	at org.apache.spark.sql.catalyst.parser.ParseException.withCommand(ParseDriver.scala:306)
+	at org.apache.spark.sql.catalyst.parser.AbstractSqlParser.parse(ParseDriver.scala:143)
+	at org.apache.spark.sql.execution.SparkSqlParser.parse(SparkSqlParser.scala:52)
+	at org.apache.spark.sql.catalyst.parser.AbstractSqlParser.parsePlan(ParseDriver.scala:89)
+	at org.apache.spark.sql.SparkSession.$anonfun$sql$2(SparkSession.scala:620)
+	at org.apache.spark.sql.catalyst.QueryPlanningTracker.measurePhase(QueryPlanningTracker.scala:111)
+	at org.apache.spark.sql.SparkSession.$anonfun$sql$1(SparkSession.scala:620)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:779)
+	at org.apache.spark.sql.SparkSession.sql(SparkSession.scala:617)
+	at org.apache.spark.sql.SQLContext.sql(SQLContext.scala:651)
+	at org.apache.spark.sql.hive.thriftserver.SparkExecuteStatementOperation.org$apache$spark$sql$hive$thriftserver$SparkExecuteStatementOperation$$execute(SparkExecuteStatementOperation.scala:291)
+	at org.apache.spark.sql.hive.thriftserver.SparkExecuteStatementOperation$$anon$2$$anon$3.$anonfun$run$2(SparkExecuteStatementOperation.scala:230)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+	at org.apache.spark.sql.hive.thriftserver.SparkOperation.withLocalProperties(SparkOperation.scala:79)
+	at org.apache.spark.sql.hive.thriftserver.SparkOperation.withLocalProperties$(SparkOperation.scala:63)
+	at org.apache.spark.sql.hive.thriftserver.SparkExecuteStatementOperation.withLocalProperties(SparkExecuteStatementOperation.scala:43)
+	at org.apache.spark.sql.hive.thriftserver.SparkExecuteStatementOperation$$anon$2$$anon$3.run(SparkExecuteStatementOperation.scala:230)
+	at org.apache.spark.sql.hive.thriftserver.SparkExecuteStatementOperation$$anon$2$$anon$3.run(SparkExecuteStatementOperation.scala:225)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:712)
+	at java.base/javax.security.auth.Subject.doAs(Subject.java:439)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1878)
+	at org.apache.spark.sql.hive.thriftserver.SparkExecuteStatementOperation$$anon$2.run(SparkExecuteStatementOperation.scala:239)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+23/03/31 16:42:40 ERROR HiveThriftServer2: RECEIVED SIGNAL TERM
